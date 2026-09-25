@@ -1,0 +1,17 @@
+n = int(input())
+inp = input().split(" ")
+signals = []
+for ele in inp:
+    signals.append(int(ele))
+k = int(input())
+initial_total = 0
+position = 0
+tot_length = 0
+res_window = [0]
+for i in range(n-3):
+    if (sum(signals[i:i+4])>=initial_total) and ((max(signals[i:i+4])-min(signals[i:i+4])<=k)):
+        initial_total = sum(signals[i:i+4])
+        res_window = signals[i:i+4]
+        tot_length = len(res_window)
+        position = i+1
+print(tot_length,position)
